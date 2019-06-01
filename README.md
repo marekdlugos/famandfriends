@@ -1,2 +1,2 @@
 # Family and Friends
-A different personal relationships manager
+A different personal relationships manager.

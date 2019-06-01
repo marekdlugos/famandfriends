@@ -32,3 +32,6 @@
 
 # Ignore my friends list
 db/seeds/friend-list.json
+
+# Ignore .idea
+.idea
