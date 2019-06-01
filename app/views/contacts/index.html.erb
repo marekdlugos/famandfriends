@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Contacts</h1>
+
+<%= link_to 'New Contact', new_contact_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Fb url</th>
+      <th>Fb url</th>
+      <th>Pic url</th>
+      <th>FB ID</th>
+      <th>Tw url</th>
+      <th>Ig url</th>
+      <th>In url</th>
+      <th>Tags</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.first_name %></td>
+        <td><%= contact.last_name %></td>
+        <td><a href="https://www.facebook.com<%= contact.fb_url %>">Show FB Profile</a></td>
+        <td><a href="https://www.facebook.com/messages/t/<%= contact.fb_id %>">Open chat</a></td>
+        <td><img src="<%= contact.pic_url %>" alt="<%= contact.first_name %> <%= contact.last_name %>"></td>
+        <td><%= contact.fb_id %></td>
+        <td><%= contact.tw_url %></td>
+        <td><%= contact.ig_url %></td>
+        <td><%= contact.in_url %></td>
+        <td>
+          <p><% contact.tag_list.each do |tag| %>
+              <%= link_to tag, tagged_path(tag: tag) %>
+            <% end %></p>
+        </td>
+        <td><%= link_to 'Show', contact %></td>
+        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

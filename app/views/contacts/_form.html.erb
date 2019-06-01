@@ -1,0 +1,62 @@
+<%= form_with(model: contact, local: true) do |form| %>
+  <% if contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :tag_list %>
+    <%= form.text_field :tag_list, value: form.object.tag_list.to_s %>
+  </div>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fb_url %>
+    <%= form.text_area :fb_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pic_url %>
+    <%= form.text_area :pic_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fb_id %>
+    <%= form.text_field :fb_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tw_url %>
+    <%= form.text_area :tw_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ig_url %>
+    <%= form.text_area :ig_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :in_url %>
+    <%= form.text_area :in_url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
